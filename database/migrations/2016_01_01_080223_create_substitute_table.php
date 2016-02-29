@@ -17,6 +17,7 @@ class CreateSubstituteTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('address');
+            $table->string('zipcode');
             $table->integer('distance');
             $table->timestamps();
             

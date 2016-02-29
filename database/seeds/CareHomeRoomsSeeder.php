@@ -18,6 +18,12 @@ class CareHomeRoomsSeeder extends Seeder
                 'square_footage' => "20000",
                 'available' => "1",
             ],
+            [
+                'id' => "2",
+                'care_home_id' => "2",
+                'square_footage' => "20000",
+                'available' => "1",
+            ],
         ]); 
     }
 }

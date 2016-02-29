@@ -34,6 +34,9 @@ Route::get('/authlogout', function () {
  */
 
 Route::group(['middleware' => ['web']], function () {
+    Route::get('/careHome/{id}', 'CareHomeController@getCareHome');
+    Route::get('/edit/carehome/{id}', 'CareHomeController@getEditCareHome');
+    Route::get('/delete/carehome/{id}', 'CareHomeController@getDeleteCareHome');
     Route::get('/', function() {
         return view('home');
     });
@@ -41,8 +44,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/login', 'auth\AuthController@postLogin');
     Route::get('/logout', 'auth\AuthController@getLogout');
     //
-    Route::get('/register', 'auth\AuthController@getRegister');
-    Route::post('/register', 'auth\AuthController@postRegister');
+    Route::get('/register', 'CareHomeController@getRegister');
+    Route::post('/register', 'CareHomeController@postRegister');
     Route::get('/findcarehome', function () {
         return view('findcarehome');
     });
@@ -50,5 +53,38 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/profile', 'CareHomeController@getProfile');
     Route::get('/registersubstitute', 'CareHomeController@getRegisterSubstitute');
     Route::post('/registersubstitute', 'CareHomeController@postRegisterSubstitute');
-    Route::get('/registercarehome', 'CareHomeController@getRegisterCareHome');
+    Route::get('/register/carehome', 'CareHomeController@getRegisterCareHome');
+    Route::post('/register/carehome', 'CareHomeController@postRegisterCareHome');
+
+    Route::get('/edit/substituteinfo', 'CareHomeController@getEditSubstituteInfo');
+    Route::post('/edit/substituteinfo', 'CareHomeController@postEditSubstituteInfo');
+
+    Route::get('/create/callforsubstitute', 'CareHomeController@getCreateCallForSubstitute');
+    Route::post('/create/callforsubstitute', 'CareHomeController@postCreateCallForSubstitute');
+
+    Route::get('/search/callforsubstitute/{id}', 'CareHomeController@getSearchForSubstitute');
+    Route::get('/edit/callforsubstitute/{id}', 'CareHomeController@getEditCallForSubstitute');
+    Route::get('/delete/callforsubstitute/{id}', 'CareHomeController@getDeleteCallForSubstitute');
+    Route::post('/edit/callforsubstitute/{id}', 'CareHomeController@postEditCallForSubstitute');
+    Route::get('/search/substitute/{id}', 'CareHomeController@getSearchForSubstitute');
+
+    Route::get('/sendmessage/substitute/{id}', 'CareHomeController@getSendMessageSubstitute');
+    Route::post('/sendmessage/substitute/{id}', 'CareHomeController@postSendMessageSubstitute');
+
+    Route::get('/confirmation/sendmessage/substitute/{id}', 'CareHomeController@getConfirmationSendMessageSubstitute');
+
+    Route::get('/substitutemessages', 'CareHomeController@getSubstituteMessages');
+    Route::get('/delete/substitutemessage/{id}', 'CareHomeController@getDeleteSubstituteMessage');
+
+    Route::get('/search/callforsubstitute/{id}', 'CareHomeController@getSearchCallForSubstitute');
+
+    Route::get('/sendmessage/callforsubstitute/{id}', 'CareHomeController@getSendMessageCallForSubstitute');
+    Route::post('/sendmessage/callforsubstitute/{id}', 'CareHomeController@postSendMessageCallForSubstitute');
+
+    Route::get('/show/callforsubstitutemessages/{id}', 'CareHomeController@getShowCallForSubstituteMessages');
+    Route::get('/delete/callforsubstitutemessages/{id}/{callid}', 'CareHomeController@getDeleteShowCallForSubstituteMessages');
+    Route::get('/confirmation/sendmessage/callforsubstitute/{id}', 'CareHomeController@getConfirmationSendMessageCallForSubstitute');
+
+    Route::get('/callforsubstitutemessage/{id}', 'CareHomeController@getCallForSubstituteMessage');
+
 });

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCareHome extends Migration
+class CreateCallForSubstituteTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,16 @@ class CreateCareHome extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('care_homes', function (Blueprint $table) {
+        Schema::create('calls_for_substitute', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('lat');
-            $table->string('lng');
-            $table->string('zipcode');
-            $table->string('address');
+            $table->integer('care_home_id')->unsigned();
+            $table->foreign('care_home_id')->references('id')->on('care_homes');
+            $table->string('start_date');
+            $table->string('start_time');
+            $table->string('end_date');
+            $table->string('end_time');
             $table->timestamps();
             
         });
@@ -33,6 +34,6 @@ class CreateCareHome extends Migration
      */
     public function down()
     {
-        Schema::drop('care_homes');
+        Schema::drop('calls_for_substitute');
     }
 }

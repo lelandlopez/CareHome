@@ -18,6 +18,7 @@ class CreateCareHomeRoomsTable extends Migration
             $table->foreign('care_home_id')->references('id')->on('care_homes');
             $table->integer('square_footage');
             $table->boolean('available');
+            $table->timestamps();
             
         });
     }

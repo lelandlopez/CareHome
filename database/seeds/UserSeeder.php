@@ -18,6 +18,12 @@ class UserSeeder extends Seeder
                 'email' => "lelandlopez@gmail.com",
                 'password' => bcrypt("waiakea2009"),
             ],
+            [
+                'id' => "2",
+                'name' => "shelby ferrer",
+                'email' => "shelbyferrer@gmail.com",
+                'password' => bcrypt("waiakea2009"),
+            ],
         ]); 
     }
 }

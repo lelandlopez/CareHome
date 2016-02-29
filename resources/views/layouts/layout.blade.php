@@ -6,12 +6,11 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-{{Auth::user()}}
 <nav class="navbar navbar-default">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="">Care</a>
+            <a class="navbar-brand" href="{{url('/')}}">Care</a>
 
         </div>
         <ul class="nav navbar-nav">

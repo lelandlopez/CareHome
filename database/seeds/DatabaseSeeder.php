@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CareHomeSeeder::class);
         $this->call(CareHomeRoomsSeeder::class);
         $this->call(SubstituteSeeder::class);
+        $this->call(CallForSubstituteSeeder::class);
+        $this->call(SubstituteMessageSeeder::class);
     }
 }
